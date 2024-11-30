@@ -166,3 +166,34 @@ table {
 .app-header {
     background-color: white;
 }
+
+.striped-table {
+    border-collapse: collapse;
+    margin: 25px auto;
+    font-size: 16px;
+    text-align: center;
+    width: 50%;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+  
+.striped-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    font-weight: bold;
+}
+  
+.striped-table th, .striped-table td {
+    padding: 12px 15px;
+}
+  
+.striped-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+  
+.striped-table tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+  
+.striped-table tbody tr:nth-child(odd) {
+    background-color: white;
+}

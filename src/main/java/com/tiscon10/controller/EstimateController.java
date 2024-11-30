@@ -21,11 +21,7 @@ import com.tiscon10.domain.InsuranceOrder;
 import com.tiscon10.form.UserOrderForm;
 import com.tiscon10.service.EstimateService;
 
-/**
- * 保険見積もりのコントローラークラス。
- *
- * @author TIS Taro
- */
+
 
 @Controller
 public class EstimateController {

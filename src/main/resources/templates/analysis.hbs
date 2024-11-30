@@ -1,0 +1,43 @@
+{{#partial "head" }}
+  <title>分析画面</title>
+  <link rel="stylesheet" href="/css/top.css">
+{{/partial}}
+
+{{#partial "content"}}
+  <div>
+    <div class="page-title">利用者様状況の分析を行うページです</div>
+    {{!-- <div class="text-center">
+      <form method="post">
+        <button class="btn btn-primary" type="submit">年代別利用者状況を確認する</button>
+      </form>
+    </div> --}}
+
+    {{#if ageGroupData}}
+    <div class="text-center">
+      <h2>年代別の利用者状況</h2>
+      <table class="striped-table">
+        <thead>
+          <tr>
+            <th>年代</th>
+            <th>利用者数</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each ageGroupData}}
+          <tr>
+            <td>{{this.ageGroup}}代</td>
+            <td>{{this.userCount}}人</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    {{/if}}
+    <div class="text-center">
+      <a class="btn btn-back" href="/" role="button">TOPへ戻る</a>
+    </div>
+  </div>
+{{/partial}}
+
+{{> common/base }}
+
