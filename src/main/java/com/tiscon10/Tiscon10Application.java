@@ -2,7 +2,6 @@ package com.tiscon10;
 
 import java.util.Map;
 
-import com.tiscon10.viewhelper.SpringMVCHelper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -11,6 +10,8 @@ import org.springframework.web.servlet.ViewResolver;
 import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.helper.ConditionalHelpers;
 import com.github.jknack.handlebars.springmvc.HandlebarsViewResolver;
+import com.tiscon10.viewhelper.InsuranceTypeHelper;
+import com.tiscon10.viewhelper.SpringMVCHelper;
 
 /**
  * Spring Bootのエントリーポイント。
@@ -35,7 +36,8 @@ public class Tiscon10Application {
             "eq", ConditionalHelpers.eq,
             "not", ConditionalHelpers.not,
             "fieldErrors", new SpringMVCHelper.FieldErrorsHelper(),
-            "hasFieldErrors", new SpringMVCHelper.HasFieldErrorsHelper()
+            "hasFieldErrors", new SpringMVCHelper.HasFieldErrorsHelper(),
+            "insuranceType", new InsuranceTypeHelper()
         );
         viewResolver.setHelpers(helpers);
         return viewResolver;

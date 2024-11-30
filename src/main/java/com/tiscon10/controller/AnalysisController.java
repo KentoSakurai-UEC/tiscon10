@@ -31,8 +31,14 @@ public class AnalysisController {
      */
     @GetMapping("analysis")
     String analysis(Model model) {
-        AnalysisResult.AgeGroupResult analysisResult = analysisService.getNumberOfUsersByAgeGroup();
-        model.addAttribute("ageGroupData", analysisResult.ageGroupData());
+        // 年代別分析
+        AnalysisResult.AgeGroupResult ageGroupResult = analysisService.getNumberOfUsersByAgeGroup();
+        model.addAttribute("ageGroupData", ageGroupResult.ageGroupData());
+
+        // 保険種別分析
+        AnalysisResult.InsuranceTypeResult insuranceTypeResult = analysisService.getNumberOfUsersByInsuranceType();
+        model.addAttribute("insuranceTypeData", insuranceTypeResult.insuranceTypeData());
+        
         return "analysis";
     }
     

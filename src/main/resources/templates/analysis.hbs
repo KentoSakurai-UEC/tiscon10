@@ -33,6 +33,29 @@
       </table>
     </div>
     {{/if}}
+
+    {{#if insuranceTypeData}}
+    <div class="text-center">
+      <h2>保険種別の利用者状況</h2>
+      <table class="striped-table">
+        <thead>
+          <tr>
+            <th>保険種別</th>
+            <th>利用者数</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each insuranceTypeData}}
+          <tr>
+            <td>{{insuranceType this.insuranceType}}</td>
+            <td>{{this.userCount}}人</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    {{/if}}
+
     <div class="text-center">
       <a class="btn btn-back" href="/" role="button">TOPへ戻る</a>
     </div>
