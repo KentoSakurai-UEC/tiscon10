@@ -78,4 +78,27 @@ public class AnalysisService {
 
         return analysisResult;
     }
+
+    /**
+     * INSURANCE_ORDER テーブルから都道府県別の利用者数を取得する。
+     * 
+     *
+     * @return 都道府県別分析結果を表すクラス (AnalysisResult.PrefectureResult)
+     */
+    public AnalysisResult.PrefectureResult getNumberOfUsersByPrefecture() {
+        // SQL を実行し、保険種別の利用者数を取得する。
+        List<Map<String, Object>> PrefectureGroupDataList = analysisDao.getNumberOfUsersByPrefecture();
+
+        // DB 取得結果を AnalysisResult.PrefectureResult の List に変換
+        List<AnalysisResult.PrefectureResult.PrefectureData> prefectureDataList = new ArrayList<>();
+        for (Map<String, Object> row : PrefectureGroupDataList) {
+            String prefecture = ((String) row.get("prefecture")); // 都道府県
+            int userCount = ((Number) row.get("user_count")).intValue(); // 利用者数
+            prefectureDataList.add(new AnalysisResult.PrefectureResult.PrefectureData(prefecture, userCount));
+        }
+        // 都道府県別分析結果を返す。
+        AnalysisResult.PrefectureResult analysisResult = new AnalysisResult.PrefectureResult(prefectureDataList);
+
+        return analysisResult;
+    }
 }

@@ -38,7 +38,11 @@ public class AnalysisController {
         // 保険種別分析
         AnalysisResult.InsuranceTypeResult insuranceTypeResult = analysisService.getNumberOfUsersByInsuranceType();
         model.addAttribute("insuranceTypeData", insuranceTypeResult.insuranceTypeData());
-        
+
+        // 都道府県別分析
+        AnalysisResult.PrefectureResult prefectureResult = analysisService.getNumberOfUsersByPrefecture();
+        model.addAttribute("prefectureData", prefectureResult.prefectureData());
+
         return "analysis";
     }
     

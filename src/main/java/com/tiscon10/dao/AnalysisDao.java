@@ -78,4 +78,22 @@ public class AnalysisDao {
             """;
         return parameterJDBCtemplate.queryForList(sql, new MapSqlParameterSource());
     }
+
+    /**
+     * INSURANCE_ORDER テーブルから都道府県別の利用者数を取得する。
+     * データ分析用ページで使用するメソッド。
+     *
+     * @return 都道府県別利用者数の List（Map のリスト形式で返却）
+     */
+    public List<Map<String, Object>> getNumberOfUsersByPrefecture() {
+        String sql = """
+            SELECT 
+                ADDRESS AS prefecture,
+                COUNT(*) AS user_count
+            FROM INSURANCE_ORDER
+            GROUP BY ADDRESS
+            ORDER BY user_count DESC;
+        """;
+        return parameterJDBCtemplate.queryForList(sql, new MapSqlParameterSource());
+    }
 }

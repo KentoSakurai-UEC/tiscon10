@@ -56,6 +56,28 @@
     </div>
     {{/if}}
 
+    {{#if prefectureData}}
+    <div class="text-center">
+      <h2>都道府県別の利用者状況</h2>
+      <table class="striped-table">
+        <thead>
+          <tr>
+            <th>都道府県</th>
+            <th>利用者数</th>
+          </tr>
+        </thead>
+        <tbody>
+        {{#each prefectureData}}
+        <tr>
+          <td>{{this.prefecture}}</td>
+          <td>{{this.userCount}}人</td>
+        </tr>
+        {{/each}}
+        </tbody>
+      </table>
+    </div>
+    {{/if}}
+
     <div class="text-center">
       <a class="btn btn-back" href="/" role="button">TOPへ戻る</a>
     </div>

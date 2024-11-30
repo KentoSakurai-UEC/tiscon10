@@ -42,4 +42,21 @@ public class AnalysisResult {
             int userCount      // 利用者数
         ) {}
     }
+
+    /**
+     * 都道府県分析結果を表すクラス。
+     *
+     * @param prefectureData 都道府県別の利用者数データ
+     */
+    public static record PrefectureResult(
+        List<PrefectureData> prefectureData // 都道府県別の利用者数データ
+    ) {
+        /**
+         * 保険種別の利用者数を表す内部クラス。
+         */
+        public static record PrefectureData(
+            String prefecture, // 都道府県 (テーブルに市町村を含まない前提の実装なので注意)
+            int userCount      // 利用者数
+        ) {}
+    }
 }
