@@ -57,4 +57,25 @@ public class AnalysisDao {
             """;
         return parameterJDBCtemplate.queryForList(sql, new MapSqlParameterSource());
     }
+
+    /**
+     * INSURANCE_ORDER テーブルから保険種別の利用者数を取得する。
+     * データ分析用ページで使用するメソッド。
+     *
+     * @return 保険種別利用者数の List（Map のリスト形式で返却）
+     */
+    public List<Map<String, Object>> getNumberOfUsersByInsuranceType() {
+        String sql = """
+            SELECT 
+                INSURANCE_TYPE, 
+                COUNT(*) AS user_count 
+            FROM 
+                INSURANCE_ORDER 
+            GROUP BY 
+                INSURANCE_TYPE 
+            ORDER BY 
+                INSURANCE_TYPE;
+            """;
+        return parameterJDBCtemplate.queryForList(sql, new MapSqlParameterSource());
+    }
 }

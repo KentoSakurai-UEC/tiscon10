@@ -31,7 +31,7 @@ public class AnalysisController {
      */
     @GetMapping("analysis")
     String analysis(Model model) {
-        AnalysisResult analysisResult = analysisService.getNumberOfUsersByAgeGroup();
+        AnalysisResult.AgeGroupResult analysisResult = analysisService.getNumberOfUsersByAgeGroup();
         model.addAttribute("ageGroupData", analysisResult.ageGroupData());
         return "analysis";
     }
